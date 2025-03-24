@@ -46,47 +46,23 @@ playBtn.addEventListener("click", () => {
 
     // play round - rock paper scissor game logic
     function playRound(humanChoice, computerChoice) {
-         
-        // Rock vs Paper = Paper Wins
-        if (humanChoice === "Rock" && computerChoice === "Paper") {
-            computerScore++;  
-            return `You lose! ${resultComp} beats ${resultHuman}`; 
-        }
-        // reverse
-        if (computerChoice === "Rock" && humanChoice === "Paper") {
-            humanScore++;  
-            return `You win! ${resultHuman} beats ${resultComp}`; 
-        }
-
-        
-        // Rock vs Scissors = Rock wins
-        if (humanChoice === "Rock" && computerChoice === "Scissors") {
-            humanScore++;
-            return `You win! ${resultHuman} beats ${resultComp}`; 
-        }
-        // Reverse
-        if (computerChoice === "Rock" && humanChoice === "Scissors") {
-            computerScore++;
-            return `You lose! ${resultComp} beats ${resultHuman}`; 
-        }
-
-
-        // Paper vs Scissors - Scissors win
-        if (humanChoice === "Paper" && computerChoice === "Scissors") {
-            computerScore++;
-            return `You lose! ${resultComp} beats ${resultHuman}`; 
-        }
-        // Reverse
-        if (computerChoice === "Paper" && humanChoice === "Scissors") {
-            humanScore++;
-            return `You win! ${resultHuman} beats ${resultComp}`; 
-        }
-
 
         if (humanChoice === computerChoice) {
             return "Draw! Please try again.";
         }
+        
+        const winConditions = 
+            (humanChoice === "Rock" && computerChoice === "Scissors") ||
+            (humanChoice === "Paper" && computerChoice === "Rock") ||
+            (humanChoice === "Scissors" && computerChoice === "Paper");
 
+        if (winConditions){
+            humanScore++;
+            return `You win! ${resultHuman} beats ${resultComp}`;
+        } else {
+            computerScore++;
+            return `You lose! ${resultComp} beats ${resultHuman}`;
+        }
 
     }
         
