@@ -17,18 +17,29 @@ function getComputerChoice() {
 let resultComp = getComputerChoice();
 console.log(resultComp);
 
-// get the Human Choice
-function getHumanChoice() {
-    let playerValue = prompt("Please type between choices: r / R (for Rock), p / P (for Paper) , s / S (for Scissors)", "P");
-     if (playerValue === "R" || playerValue === "r" ) {
-        return "Rock";
-    } else if (playerValue === "P" || playerValue === "p" ) {
-        return "Paper";
-    } else if (playerValue === "S" || playerValue === "s" ) {
-       return "Scissors";
-    } else {
-        return "Please select proper value!";
+
+// play Button function
+const playBtn = document.querySelector(".playBtn");
+
+playBtn.addEventListener("click", () => {
+
+    // get the Human Choice
+    function getHumanChoice() {
+        let playerValue = prompt("Please type between choices: r / R (for Rock), p / P (for Paper) , s / S (for Scissors)", "P");
+        if (playerValue === "R" || playerValue === "r" ) {
+            return "Rock";
+        } else if (playerValue === "P" || playerValue === "p" ) {
+            return "Paper";
+        } else if (playerValue === "S" || playerValue === "s" ) {
+        return "Scissors";
+        } else {
+            return "Please select proper value!";
+        }
     }
-}
-let resultHuman = getHumanChoice();
-console.log(resultHuman);
+    let resultHuman = getHumanChoice();
+    console.log(resultHuman);
+
+});
+
+
+
