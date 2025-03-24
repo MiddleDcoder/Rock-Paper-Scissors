@@ -1,9 +1,12 @@
+//global scope
+let humanScore = 0;
+let computerScore = 0;
+
+
 //get the Computer Choice
 function getComputerChoice() {
     let randomChoice = "RPS";
     let comptChoice = randomChoice.charAt(Math.floor(Math.random() * 3));
-
-    console.log(comptChoice); //remove this later
 
     if (comptChoice === "R"){
         return "Rock";
