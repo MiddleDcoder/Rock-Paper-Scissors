@@ -3,10 +3,17 @@ const playBtn = document.querySelector(".playBtn");
 
 playBtn.addEventListener("click", () => {
 
-    //global scope
-    let humanScore = 0;
-    let computerScore = 0;
+    gameStart();
 
+});
+
+
+// start the game 
+function gameStart() {
+
+    //global variable scope
+    let roundCount = 1;
+    
 
     //get the Computer Choice
     function getComputerChoice() {
@@ -37,42 +44,99 @@ playBtn.addEventListener("click", () => {
         } else if (playerValue === "S" || playerValue === "s" ) {
         return "Scissors";
         } else {
-            return "Please select proper value!";
+            //default value when enter wrong input - will update later to handle rePrompting
+            return "Paper";
         }
     }
     let resultHuman = getHumanChoice();
     console.log(resultHuman); // remove later
 
 
-    // play round - rock paper scissor game logic
-    function playRound(humanChoice, computerChoice) {
+    // Play the entire game
+    function playGame() {
 
-        if (humanChoice === computerChoice) {
-            return "Draw! Please try again.";
+        // score variables
+        let humanScore = 0;
+        let computerScore = 0;
+
+        // play round - rock paper scissor game logic
+        function playRound(humanChoice, computerChoice) {
+
+            ++roundCount;
+
+            if (humanChoice === computerChoice) {
+                return "Draw! Please try again.";
+            }
+
+            const winConditions = 
+                (humanChoice === "Rock" && computerChoice === "Scissors") ||
+                (humanChoice === "Paper" && computerChoice === "Rock") ||
+                (humanChoice === "Scissors" && computerChoice === "Paper");
+
+            if (winConditions){
+                humanScore++;
+                return `You win! ${humanChoice} beats ${computerChoice}`;
+            } else {
+                computerScore++;
+                return `You lose! ${computerChoice} beats ${humanChoice}`;
+            }
+
         }
+         
+        const humanSelection = resultHuman; //getHumanChoice();
+        const computerSelection = resultComp; //getComputerChoice();
         
-        const winConditions = 
-            (humanChoice === "Rock" && computerChoice === "Scissors") ||
-            (humanChoice === "Paper" && computerChoice === "Rock") ||
-            (humanChoice === "Scissors" && computerChoice === "Paper");
+        //first round result
+        console.log(playRound(humanSelection, computerSelection));
+        // track the scores
+        console.log(humanScore);
+        console.log(computerScore);
+        console.log(playRoundCount());
 
-        if (winConditions){
-            humanScore++;
-            return `You win! ${resultHuman} beats ${resultComp}`;
-        } else {
-            computerScore++;
-            return `You lose! ${resultComp} beats ${resultHuman}`;
+        // call playRound 2 times
+        console.log(playRound(getHumanChoice(), getComputerChoice()));
+            console.log(humanScore);
+            console.log(computerScore);
+            console.log(playRoundCount());
+            
+        // call playRound 3 times
+        console.log(playRound(getHumanChoice(), getComputerChoice()));
+            console.log(humanScore);
+            console.log(computerScore);
+            console.log(playRoundCount());
+
+        // call playRound 4 times
+        console.log(playRound(getHumanChoice(), getComputerChoice()));
+            console.log(humanScore);
+            console.log(computerScore);
+            console.log(playRoundCount());
+ 
+        // call playRound 5 times
+        console.log(playRound(getHumanChoice(), getComputerChoice()));
+            console.log(humanScore);
+            console.log(computerScore);
+            console.log(playRoundCount());
+
+        // play round counter 
+        function playRoundCount() {
+
+            const drawResult = (humanScore === computerScore);
+            const winnerResult = (humanScore > computerScore);
+        
+            // declare a winner in the end   
+            if (roundCount === 6 && drawResult) {
+                return "No Winner Draw Match!";
+            } else if (roundCount === 6 && winnerResult) {
+                return "Game Winner is Human";
+            } else if (roundCount === 6) {
+                return "Game Winner is Computer";
+            } else {
+                return `Play next round ${roundCount}`;
+            }
         }
 
     }
-        
-    const humanSelection = resultHuman; //getHumanChoice();
-    const computerSelection = resultComp; //getComputerChoice();
 
-   let playRoundResult = playRound(humanSelection, computerSelection);
-    console.log(playRoundResult);
+    playGame();
 
-    console.log(humanScore);
-    console.log(computerScore);
-
-});
+}
