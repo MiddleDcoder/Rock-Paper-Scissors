@@ -1,9 +1,9 @@
 // play Button function
 const playBtn = document.querySelector(".playBtn");
-playBtn.addEventListener("click", gameStart);
+playBtn.addEventListener("click", playGame);
 
 // Play the entire game
-function gameStart() {
+function playGame() {
 
     //global variables scope
     let roundCount = 1;
@@ -65,43 +65,37 @@ function gameStart() {
 
     }
          
-        //first round result
+    // Function to handle and log each round
+    function playAndLog() {
         console.log(`Round ${roundCount}:`);
         console.log(playRound(getHumanChoice(), getComputerChoice()));
         console.log(`Score - Human: ${humanScore}, Computer: ${computerScore}`);
+    }
 
-        // call playRound 2 times
-        console.log(`Round ${roundCount}:`);
-        console.log(playRound(getHumanChoice(), getComputerChoice()));
-        console.log(`Score - Human: ${humanScore}, Computer: ${computerScore}`);
-            
-        // call playRound 3 times
-        console.log(`Round ${roundCount}:`);
-        console.log(playRound(getHumanChoice(), getComputerChoice()));
-        console.log(`Score - Human: ${humanScore}, Computer: ${computerScore}`);
+    // Play the match (5 rounds)
+    function playMatch() {
+        playAndLog();
+        playAndLog();
+        playAndLog();
+        playAndLog();
+        playAndLog();
+    }
 
-        // call playRound 4 times
-        console.log(`Round ${roundCount}:`);
-        console.log(playRound(getHumanChoice(), getComputerChoice()));
-        console.log(`Score - Human: ${humanScore}, Computer: ${computerScore}`);
- 
-        // call playRound 5 times
-        console.log(`Round ${roundCount}:`);
-        console.log(playRound(getHumanChoice(), getComputerChoice()));
-        console.log(`Score - Human: ${humanScore}, Computer: ${computerScore}`);
+    playMatch();
 
-        let result;
+    // Display final result
+    let result;
 
-        if (humanScore === computerScore) {
-            result = "No Winner. Draw Match!";
-        } 
-        else if (humanScore > computerScore) {
-            result = "Game Winner is Human";
-        } 
-        else {
-            result = "Game Winner is Computer";
-        }
-    
-        console.log(result);
+    if (humanScore === computerScore) {
+        result = "No Winner. Draw Match!";
+    } 
+    else if (humanScore > computerScore) {
+        result = "Game Winner is Human";
+    } 
+    else {
+        result = "Game Winner is Computer";
+    }
+
+    console.log(result);
 
 }
