@@ -1,19 +1,15 @@
 // play Button function
 const playBtn = document.querySelector(".playBtn");
+playBtn.addEventListener("click", gameStart);
 
-playBtn.addEventListener("click", () => {
-
-    gameStart();
-
-});
-
-
-// start the game 
+// Play the entire game
 function gameStart() {
 
-    //global variable scope
+    //global variables scope
     let roundCount = 1;
-    
+    // score variables
+    let humanScore = 0;
+    let computerScore = 0;
 
     //get the Computer Choice
     function getComputerChoice() {
@@ -22,121 +18,90 @@ function gameStart() {
 
         if (comptChoice === "R"){
             return "Rock";
-        } else if (comptChoice === "P"){
+        } 
+        if (comptChoice === "P"){
             return "Paper";
-        } else {
+        } 
         return "Scissors";
-        }
     }
-    // Store the returned value in a variable or log it directly
-    let resultComp = getComputerChoice();
-    console.log(resultComp); // remove later
-
-
+    
     // get the Human Choice
     function getHumanChoice() {
         let playerValue = prompt("Please type between choices: r / R (for Rock), p / P (for Paper) , s / S (for Scissors)", "P");
 
         if (playerValue === "R" || playerValue === "r" ) {
             return "Rock";
-        } else if (playerValue === "P" || playerValue === "p" ) {
-            return "Paper";
-        } else if (playerValue === "S" || playerValue === "s" ) {
-        return "Scissors";
-        } else {
-            //default value when enter wrong input - will update later to handle rePrompting
+        }
+        if (playerValue === "P" || playerValue === "p" ) {
             return "Paper";
         }
+        if (playerValue === "S" || playerValue === "s" ) {
+            return "Scissors";
+        }
+        //default value when enter wrong input - will update later to handle rePrompting
+        return "Paper";
     }
-    let resultHuman = getHumanChoice();
-    console.log(resultHuman); // remove later
 
+    // play round - rock paper scissor game logic
+    function playRound(humanChoice, computerChoice) {
+        roundCount++;
 
-    // Play the entire game
-    function playGame() {
-
-        // score variables
-        let humanScore = 0;
-        let computerScore = 0;
-
-        // play round - rock paper scissor game logic
-        function playRound(humanChoice, computerChoice) {
-
-            ++roundCount;
-
-            if (humanChoice === computerChoice) {
-                return "Draw! Please try again.";
-            }
-
-            const winConditions = 
-                (humanChoice === "Rock" && computerChoice === "Scissors") ||
-                (humanChoice === "Paper" && computerChoice === "Rock") ||
-                (humanChoice === "Scissors" && computerChoice === "Paper");
-
-            if (winConditions){
-                humanScore++;
-                return `You win! ${humanChoice} beats ${computerChoice}`;
-            } else {
-                computerScore++;
-                return `You lose! ${computerChoice} beats ${humanChoice}`;
-            }
-
+        if (humanChoice === computerChoice) {
+            return "Draw! Please try again.";
         }
+
+        const winConditions = 
+            (humanChoice === "Rock" && computerChoice === "Scissors") ||
+            (humanChoice === "Paper" && computerChoice === "Rock") ||
+            (humanChoice === "Scissors" && computerChoice === "Paper");
+
+        if (winConditions){
+            humanScore++;
+            return `You win! ${humanChoice} beats ${computerChoice}`;
+        } else {
+            computerScore++;
+            return `You lose! ${computerChoice} beats ${humanChoice}`;
+        }
+
+    }
          
-        const humanSelection = resultHuman; //getHumanChoice();
-        const computerSelection = resultComp; //getComputerChoice();
-        
         //first round result
-        console.log(playRound(humanSelection, computerSelection));
-        // track the scores
-        console.log(humanScore);
-        console.log(computerScore);
-        console.log(playRoundCount());
+        console.log(`Round ${roundCount}:`);
+        console.log(playRound(getHumanChoice(), getComputerChoice()));
+        console.log(`Score - Human: ${humanScore}, Computer: ${computerScore}`);
 
         // call playRound 2 times
+        console.log(`Round ${roundCount}:`);
         console.log(playRound(getHumanChoice(), getComputerChoice()));
-            console.log(humanScore);
-            console.log(computerScore);
-            console.log(playRoundCount());
+        console.log(`Score - Human: ${humanScore}, Computer: ${computerScore}`);
             
         // call playRound 3 times
+        console.log(`Round ${roundCount}:`);
         console.log(playRound(getHumanChoice(), getComputerChoice()));
-            console.log(humanScore);
-            console.log(computerScore);
-            console.log(playRoundCount());
+        console.log(`Score - Human: ${humanScore}, Computer: ${computerScore}`);
 
         // call playRound 4 times
+        console.log(`Round ${roundCount}:`);
         console.log(playRound(getHumanChoice(), getComputerChoice()));
-            console.log(humanScore);
-            console.log(computerScore);
-            console.log(playRoundCount());
+        console.log(`Score - Human: ${humanScore}, Computer: ${computerScore}`);
  
         // call playRound 5 times
+        console.log(`Round ${roundCount}:`);
         console.log(playRound(getHumanChoice(), getComputerChoice()));
-            console.log(humanScore);
-            console.log(computerScore);
-            console.log(playRoundCount());
+        console.log(`Score - Human: ${humanScore}, Computer: ${computerScore}`);
 
-        // play round counter 
-        function playRoundCount() {
+        let result;
 
-            const drawResult = (humanScore === computerScore);
-            const winnerResult = (humanScore > computerScore);
-        
-            // declare a winner in the end   
-            if (roundCount === 6 && drawResult) {
-                return "No Winner Draw Match!";
-            } else if (roundCount === 6 && winnerResult) {
-                return "Game Winner is Human";
-            } else if (roundCount === 6) {
-                return "Game Winner is Computer";
-            } else {
-                return `Play next round ${roundCount}`;
-            }
+        if (humanScore === computerScore) {
+            result = "No Winner. Draw Match!";
+        } 
+        else if (humanScore > computerScore) {
+            result = "Game Winner is Human";
+        } 
+        else {
+            result = "Game Winner is Computer";
         }
-
-    }
-
-    playGame();
+    
+        console.log(result);
 
 }
