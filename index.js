@@ -74,11 +74,9 @@ function playGame() {
 
     // Play the match (5 rounds)
     function playMatch() {
-        playAndLog();
-        playAndLog();
-        playAndLog();
-        playAndLog();
-        playAndLog();
+        for(i = 0; i < 5; i++) {
+            playAndLog();
+        }
     }
 
     playMatch();
