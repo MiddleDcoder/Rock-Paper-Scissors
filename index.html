@@ -8,29 +8,29 @@
 </head>
 <body>
     <!-- Start Screen -->
-    <section id="start-screen">
+    <div id="start-screen">
         <h2>Welcome to basic Rock Paper Scissor game</h2>
-        <button class="playBtn">Start Game</button>
-    </section>
-
-    <section id="game-screen" class="hidden">
+        <button class="play-btn">Start Game</button>
+    </div>
+    
+    <!--  Game Screen -->
+    <div id="game-screen"  class="choices hidden">
         <h2>Game screen</h2>
-        <!-- Selection Buttons -->
-        <div class="choices">
-            <button class="choices-btn" data-choice="Rock">Rock 🪨</button>
-            <button class="choices-btn" data-choice="Paper">Paper 📄</button>
-            <button class="choices-btn" data-choice="Scissor">Scissor ✂️</button>
-        </div>
-    </section>
+          <button class="choice-btn" data-choice="Rock">Rock</button>
+          <button class="choice-btn" data-choice="Paper">Paper</button>
+          <button class="choice-btn" data-choice="Scissor">Scissor</button>
+    </div>
 
-    <section id="result-screen" class="hidden">
+    <!-- Result Screen -->
+    <div id="result-screen" class="hidden">
         <h2>Result screen</h2>
         <div class="log"></div>
-    </section>
+    </div>
 
-    <section id="gameover-screen" class="hidden">
+    <!-- Game Over / Scoreboard Screen -->
+    <div id="gameover-screen" class="hidden">
         <h2>Game over screen</h2>
-    </section>
+    </div>
     <script src="index.js"></script>
 </body>
 </html>

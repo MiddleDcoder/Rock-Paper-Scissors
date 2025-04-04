@@ -1,16 +1,36 @@
+// Register Event Listeners global 
+const playBtn = document.querySelector(".play-btn");
+const choiceButtons = document.querySelectorAll(".choice-btn");
+const choicesDiv = document.querySelector(".choices");
+const logDiv = document.querySelector(".log");
+const startScreen = document.querySelector("#start-screen")
+
+ // Declare global variables scope
+let roundCount, humanScore, computerScore;
+let maxRounds = 5;
+
+playBtn.addEventListener("click", startGame);
+
 // play Button function
-const playBtn = document.querySelector(".playBtn");
-playBtn.addEventListener("click", playGame);
+function startGame() {
+    // Initialize score and round count
+    roundCount = 1;
+    humanScore = 0;
+    computerScore = 0;
+    logDiv.textContent = "";
+    choicesDiv.classList.remove("hidden");
+
+    logDiv.innerHTML += `<p> Game Started! Choose Rock, Paper, or Scissor. </p>`;
+
+    startScreen.classList.add("hidden");
+}
+
+
 
 // Play the entire game
 function playGame() {
 
-    // global variables scope
-    let roundCount = 1;
-    // score variables
-    let humanScore = 0;
-    let computerScore = 0;
-    // RPS choices
+
 
 
     // get the Computer Choice
