@@ -24,24 +24,17 @@ function startGame() {
   startScreen.classList.add("hidden");
 
   resultScreen.classList.remove("hidden");
-  logDiv.innerHTML += `<p> Game Started! Choose Rock, Paper, or Scissor. </p>`;
+  logDiv.innerHTML += `<p> Game Started! Choose Rock, Paper, or Scissors. </p>`;
 }
 
 // get the Computer Choice
 function getComputerChoice() {
-  const choices = ["Rock", "Paper", "Scissor"];
+  const choices = ["Rock", "Paper", "Scissors"];
   return choices[Math.floor(Math.random() * 3)];
-}
-
-// get the Human Choice
-function getHumanChoice() {
-  // will change to data attribute approach
 }
 
 // play per round
 function playRound(humanChoice, computerChoice) {
-  roundCount++;
-
   if (humanChoice === computerChoice) {
     return "Draw! Please try again.";
   }
@@ -60,32 +53,36 @@ function playRound(humanChoice, computerChoice) {
   }
 }
 
-// Function to handle and log each round
-function playAndLog() {
-  console.log(`Round ${roundCount}:`);
-  console.log(playRound(getHumanChoice(), getComputerChoice()));
-  console.log(`Score - Human: ${humanScore}, Computer: ${computerScore}`);
-}
+// Handle the choices
+function handleChoice(e) {
+  if (roundCount > maxRounds) return;
 
-// Play the match (5 rounds)
-function playMatch() {
-  // playAndLog();
-  for (i = 0; i < 5; i++) {
-    playAndLog();
+  const humanChoice = e.target.getAttribute("data-choice"); // get the Human Choice
+  const computerChoice = getComputerChoice();
+  const result = playRound(humanChoice, computerChoice);
+
+  logDiv.innerHTML += `<p>Round ${roundCount}: ${result}</p>`;
+  logDiv.innerHTML += `<p>Score - Human: ${humanScore}, Computer: ${computerScore}</p><hr>`;
+
+  roundCount++;
+
+  // Display final result
+  if (roundCount > maxRounds) {
+    let finalResult;
+    if (humanScore === computerScore) {
+      finalResult = "No Winner. Draw Match!";
+    } else if (humanScore > computerScore) {
+      finalResult = "Game Winner is Human";
+    } else {
+      finalResult = "Game Winner is Computer";
+    }
+
+    logDiv.innerHTML += `<h3>${finalResult}</h3>`;
+    choicesDiv.classList.add("hidden");
   }
 }
 
-playMatch();
-
-// Display final result
-let result;
-
-if (humanScore === computerScore) {
-  result = "No Winner. Draw Match!";
-} else if (humanScore > computerScore) {
-  result = "Game Winner is Human";
-} else {
-  result = "Game Winner is Computer";
-}
-
-console.log(result);
+// Attach event listener to each choice button
+choiceButtons.forEach((button) => {
+  button.addEventListener("click", handleChoice);
+});
