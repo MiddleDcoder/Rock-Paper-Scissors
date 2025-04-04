@@ -74,10 +74,10 @@ function playGame() {
 
     // Play the match (5 rounds)
     function playMatch() {
-        playAndLog();
-        // for(i = 0; i < 5; i++) {
-        //     playAndLog();
-        // }
+        // playAndLog();
+        for(i = 0; i < 5; i++) {
+            playAndLog();
+        }
     }
 
     // Event Listeners

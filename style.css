@@ -1,0 +1,13 @@
+:root {
+    --primary-color: #E9D6B8;
+    --secondary-color: #9D7643;
+    --neutral-color: #274150;
+}
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.hidden {
+    display: none;
+}
