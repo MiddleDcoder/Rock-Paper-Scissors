@@ -74,10 +74,31 @@ function playGame() {
 
     // Play the match (5 rounds)
     function playMatch() {
-        for(i = 0; i < 5; i++) {
-            playAndLog();
-        }
+        playAndLog();
+        // for(i = 0; i < 5; i++) {
+        //     playAndLog();
+        // }
     }
+
+    // Event Listeners
+    let selectionBtn = document.querySelector("#selection-btn");
+
+    selectionBtn.addEventListener('click', (event) => {
+        let target = event.target;
+
+        switch(target.id) {
+            case 'rock-btn':
+                console.log("rock-btn");
+                break;
+            case 'paper-btn':
+                console.log("paper-btn");
+                break;
+            case 'scissor-btn':
+                console.log("scissor-btn");
+                break;
+        }
+    });
+
 
     playMatch();
 
