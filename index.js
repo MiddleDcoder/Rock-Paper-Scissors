@@ -11,35 +11,17 @@ function playGame() {
     let humanScore = 0;
     let computerScore = 0;
     // RPS choices
-    const randomChoiceIndex = ["Rock", "Paper", "Scissor"];
+
 
     // get the Computer Choice
     function getComputerChoice() {
-        const comptChoice = Math.floor(Math.random() * randomChoice.length);
-        return randomChoiceIndex[comptChoice];
+        const choices = ["Rock", "Paper", "Scissor"];
+        return choices[Math.floor(Math.random() * 3)];
     }
     
     // get the Human Choice
     function getHumanChoice() {
-        // Event Listener for button choice (Event Delegation)
-        let selectionBtn = document.querySelector("#selection-btn");
-
-        selectionBtn.addEventListener('click', (event) => {
-            let target = event.target;
-            let playerValue = "";
-            switch(target.id) {
-                case 'rock-btn':
-                    playerValue += "Rock";
-                    break;
-                case 'paper-btn':
-                    playerValue += "Paper";
-                    break;
-                case 'scissor-btn':
-                    playerValue += "Scissors";
-                    break;
-            }
-            return playerValue;
-        });
+        // will change to data attribute approach
     }
 
     // play round - rock paper scissor game logic
