@@ -5,41 +5,41 @@ playBtn.addEventListener("click", playGame);
 // Play the entire game
 function playGame() {
 
-    //global variables scope
+    // global variables scope
     let roundCount = 1;
     // score variables
     let humanScore = 0;
     let computerScore = 0;
+    // RPS choices
+    const randomChoiceIndex = ["Rock", "Paper", "Scissor"];
 
-    //get the Computer Choice
+    // get the Computer Choice
     function getComputerChoice() {
-        let randomChoice = "RPS";
-        let comptChoice = randomChoice.charAt(Math.floor(Math.random() * 3));
-
-        if (comptChoice === "R"){
-            return "Rock";
-        } 
-        if (comptChoice === "P"){
-            return "Paper";
-        } 
-        return "Scissors";
+        const comptChoice = Math.floor(Math.random() * randomChoice.length);
+        return randomChoiceIndex[comptChoice];
     }
     
     // get the Human Choice
     function getHumanChoice() {
-        let playerValue = prompt("Please type between choices: r / R (for Rock), p / P (for Paper) , s / S (for Scissors)", "P");
+        // Event Listener for button choice (Event Delegation)
+        let selectionBtn = document.querySelector("#selection-btn");
 
-        if (playerValue === "R" || playerValue === "r" ) {
-            return "Rock";
-        }
-        if (playerValue === "P" || playerValue === "p" ) {
-            return "Paper";
-        }
-        if (playerValue === "S" || playerValue === "s" ) {
-            return "Scissors";
-        }
-        //default value when enter wrong input - will update later to handle rePrompting
-        return "Paper";
+        selectionBtn.addEventListener('click', (event) => {
+            let target = event.target;
+            let playerValue = "";
+            switch(target.id) {
+                case 'rock-btn':
+                    playerValue += "Rock";
+                    break;
+                case 'paper-btn':
+                    playerValue += "Paper";
+                    break;
+                case 'scissor-btn':
+                    playerValue += "Scissors";
+                    break;
+            }
+            return playerValue;
+        });
     }
 
     // play round - rock paper scissor game logic
@@ -80,24 +80,6 @@ function playGame() {
         }
     }
 
-    // Event Listeners
-    let selectionBtn = document.querySelector("#selection-btn");
-
-    selectionBtn.addEventListener('click', (event) => {
-        let target = event.target;
-
-        switch(target.id) {
-            case 'rock-btn':
-                console.log("rock-btn");
-                break;
-            case 'paper-btn':
-                console.log("paper-btn");
-                break;
-            case 'scissor-btn':
-                console.log("scissor-btn");
-                break;
-        }
-    });
 
 
     playMatch();
