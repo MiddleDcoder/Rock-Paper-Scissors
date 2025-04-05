@@ -38,6 +38,7 @@ li {
   font-weight: 500;
   line-height: 1.6;
   letter-spacing: 0px;
+  list-style: none;
 }
 ul {
   margin: 16px auto;
@@ -54,7 +55,10 @@ button {
   cursor: pointer;
   transition: transform 0.2s ease;
 }
-
 button:hover {
   transform: scale(1.05);
+}
+.inline-buttons {
+  flex-direction: row;
+  gap: 16px;
 }

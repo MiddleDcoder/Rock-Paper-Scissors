@@ -2,7 +2,7 @@
 const playBtn = document.querySelector(".play-btn");
 const choiceButtons = document.querySelectorAll(".choice-btn");
 const choicesDiv = document.querySelector(".choices");
-const logDiv = document.querySelector(".log");
+const log = document.querySelector(".log");
 
 const startScreen = document.querySelector("#start-screen");
 const resultScreen = document.querySelector("#result-screen");
@@ -25,13 +25,10 @@ function startGame() {
   humanScore = 0;
   computerScore = 0;
   stopGame = 0;
-  logDiv.textContent = "";
+  log.textContent = "";
   choicesDiv.classList.remove("hidden");
-
   startScreen.classList.add("hidden");
-
   resultScreen.classList.remove("hidden");
-  logDiv.innerHTML += `<p> Game Started! Choose Rock, Paper, or Scissors. </p>`;
 }
 
 // get the Computer Choice
@@ -68,8 +65,8 @@ function handleChoice(e) {
   const computerChoice = getComputerChoice();
   const result = playRound(humanChoice, computerChoice);
 
-  logDiv.innerHTML += `<p>Round ${roundCount}: ${result}</p>`;
-  logDiv.innerHTML += `<p>Score - Human: ${humanScore}, Computer: ${computerScore}</p><hr>`;
+  log.innerHTML += `<p>Round ${roundCount}: ${result}</p>`;
+  log.innerHTML += `<p>Score - Human: ${humanScore}, Computer: ${computerScore}</p>`;
 
   roundCount++;
 

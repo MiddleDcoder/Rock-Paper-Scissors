@@ -46,15 +46,33 @@
     <!--  Game Screen -->
     <div id="game-screen" class="choices hidden">
       <h2 class="title">Game screen</h2>
-      <button class="choice-btn" data-choice="Rock">Rock</button>
-      <button class="choice-btn" data-choice="Paper">Paper</button>
-      <button class="choice-btn" data-choice="Scissors">Scissors</button>
+      <p>Round 1 Fight!</p>
+      <div class="scores">
+        <p>PLAYER SCORE:</p>
+        <p>COMPUTER SCORE:</p>
+      </div>
+      <div class="showcase">
+        <p>YOU WON! 🎉</p>
+        <div>
+          <p>PLAYER CHOICE SHOW</p>
+          <p>VS</p>
+          <p>COMPUTER CHOICE SHOW</p>
+        </div>
+      </div>
+      <p>Choose your move, Rock, Paper, or Scissors?</p>
+      <div class="inline-buttons">
+        <button class="choice-btn" data-choice="Rock">Rock</button>
+        <button class="choice-btn" data-choice="Paper">Paper</button>
+        <button class="choice-btn" data-choice="Scissors">Scissors</button>
+      </div>
     </div>
 
     <!-- Result Screen -->
     <div id="result-screen" class="hidden">
       <h2 class="title">Result screen</h2>
-      <div class="log"></div>
+      <p class="log"></p>
+      <p class="round-show"></p>
+      <p class="score-show"></p>
     </div>
 
     <!-- Game Over / Scoreboard Screen -->
