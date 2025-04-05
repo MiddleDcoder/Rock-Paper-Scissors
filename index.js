@@ -7,8 +7,8 @@ const startScreen = document.querySelector("#start-screen");
 const resultScreen = document.querySelector("#result-screen");
 
 // Declare global variables scope
-let roundCount, humanScore, computerScore;
-let maxRounds = 5;
+let roundCount, humanScore, computerScore, gameOver, stopGame;
+let maxPoints = 5;
 
 playBtn.addEventListener("click", startGame);
 
@@ -55,7 +55,7 @@ function playRound(humanChoice, computerChoice) {
 
 // Handle the choices
 function handleChoice(e) {
-  if (roundCount > maxRounds) return;
+  if (stopGame === maxPoints) return;
 
   const humanChoice = e.target.getAttribute("data-choice"); // get the Human Choice
   const computerChoice = getComputerChoice();
@@ -66,19 +66,19 @@ function handleChoice(e) {
 
   roundCount++;
 
+  gameOver = computerScore === maxPoints || humanScore === maxPoints;
+
   // Display final result
-  if (roundCount > maxRounds) {
+  if (gameOver) {
     let finalResult;
-    if (humanScore === computerScore) {
-      finalResult = "No Winner. Draw Match!";
-    } else if (humanScore > computerScore) {
+    if (humanScore > computerScore) {
       finalResult = "Game Winner is Human";
     } else {
       finalResult = "Game Winner is Computer";
     }
-
     logDiv.innerHTML += `<h3>${finalResult}</h3>`;
     choicesDiv.classList.add("hidden");
+    stopGame = 5; // stop the game if still clicking the choices button
   }
 }
 
