@@ -3,8 +3,14 @@ const playBtn = document.querySelector(".play-btn");
 const choiceButtons = document.querySelectorAll(".choice-btn");
 const choicesDiv = document.querySelector(".choices");
 const logDiv = document.querySelector(".log");
+
 const startScreen = document.querySelector("#start-screen");
 const resultScreen = document.querySelector("#result-screen");
+const gameOverScreen = document.querySelector("#game-over-screen");
+const gameWinnerText = document.querySelector(".game-winner");
+
+const restartBtn = document.querySelector(".restart-btn");
+const mainMenuBtn = document.querySelector(".main-menu-btn");
 
 // Declare global variables scope
 let roundCount, humanScore, computerScore, gameOver, stopGame;
@@ -76,9 +82,26 @@ function handleChoice(e) {
     } else {
       finalResult = "Game Winner is Computer";
     }
-    logDiv.innerHTML += `<h3>${finalResult}</h3>`;
     choicesDiv.classList.add("hidden");
+    gameOverScreen.classList.remove("hidden");
+    gameWinnerText.textContent = finalResult;
     stopGame = 5; // stop the game if still clicking the choices button
+
+    // end button selection
+    restartBtn.addEventListener("click", () => {
+      gameOverScreen.classList.add("hidden");
+      resultScreen.classList.add("hidden");
+      // reset stopGame so can play again
+      stopGame = 0;
+      startGame();
+    });
+
+    mainMenuBtn.addEventListener("click", () => {
+      stopGame = 0;
+      gameOverScreen.classList.add("hidden");
+      resultScreen.classList.add("hidden");
+      startScreen.classList.remove("hidden");
+    });
   }
 }
 
