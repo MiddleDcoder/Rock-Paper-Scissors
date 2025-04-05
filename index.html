@@ -4,18 +4,48 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rock Paper Scissors</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Orbitron:wght@400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <!-- Start Screen -->
     <div id="start-screen">
-      <h2>Welcome to basic Rock Paper Scissors game</h2>
+      <h1 class="title">
+        Welcome to Rock, Paper, Scissors: <br />
+        First to 5!
+      </h1>
+      <p>Think fast and choose wisely!</p>
+      <p>
+        Face off against the computer in this classic showdown of reflexes and
+        strategy.
+      </p>
+      <p>
+        Your goal?
+        <strong>Be the first to score 5 points and claim victory.</strong>
+      </p>
+      <ul>
+        <li>🪨 Rock crushes Scissors</li>
+        <li>📄 Paper covers Rock</li>
+        <li>✂️ Scissors cuts Paper</li>
+      </ul>
+      <p>Can you outsmart the AI?</p>
+      <p>Make your move — and may the best hand win! 🏆</p>
       <button class="play-btn">Start Game</button>
     </div>
 
     <!--  Game Screen -->
     <div id="game-screen" class="choices hidden">
-      <h2>Game screen</h2>
+      <h2 class="title">Game screen</h2>
       <button class="choice-btn" data-choice="Rock">Rock</button>
       <button class="choice-btn" data-choice="Paper">Paper</button>
       <button class="choice-btn" data-choice="Scissors">Scissors</button>
@@ -23,13 +53,13 @@
 
     <!-- Result Screen -->
     <div id="result-screen" class="hidden">
-      <h2>Result screen</h2>
+      <h2 class="title">Result screen</h2>
       <div class="log"></div>
     </div>
 
     <!-- Game Over / Scoreboard Screen -->
     <div id="game-over-screen" class="hidden">
-      <h2>Game over screen</h2>
+      <h2 class="title">Game over screen</h2>
       <h3 class="game-winner"></h3>
       <button class="restart-btn">Restart</button>
       <button class="main-menu-btn">Main Menu</button>

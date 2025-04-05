@@ -24,6 +24,7 @@ function startGame() {
   roundCount = 1;
   humanScore = 0;
   computerScore = 0;
+  stopGame = 0;
   logDiv.textContent = "";
   choicesDiv.classList.remove("hidden");
 
@@ -92,12 +93,10 @@ function handleChoice(e) {
       gameOverScreen.classList.add("hidden");
       resultScreen.classList.add("hidden");
       // reset stopGame so can play again
-      stopGame = 0;
       startGame();
     });
 
     mainMenuBtn.addEventListener("click", () => {
-      stopGame = 0;
       gameOverScreen.classList.add("hidden");
       resultScreen.classList.add("hidden");
       startScreen.classList.remove("hidden");
