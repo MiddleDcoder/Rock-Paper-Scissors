@@ -2,7 +2,8 @@
 const playBtn = document.querySelector(".play-btn");
 const choiceButtons = document.querySelectorAll(".choice-btn");
 const choicesDiv = document.querySelector(".choices");
-const log = document.querySelector(".log");
+const roundShow = document.querySelector(".round-show");
+const scoreShow = document.querySelector(".score-show");
 
 const startScreen = document.querySelector("#start-screen");
 const resultScreen = document.querySelector("#result-screen");
@@ -25,7 +26,6 @@ function startGame() {
   humanScore = 0;
   computerScore = 0;
   stopGame = 0;
-  log.textContent = "";
   choicesDiv.classList.remove("hidden");
   startScreen.classList.add("hidden");
   resultScreen.classList.remove("hidden");
@@ -65,8 +65,8 @@ function handleChoice(e) {
   const computerChoice = getComputerChoice();
   const result = playRound(humanChoice, computerChoice);
 
-  log.innerHTML += `<p>Round ${roundCount}: ${result}</p>`;
-  log.innerHTML += `<p>Score - Human: ${humanScore}, Computer: ${computerScore}</p>`;
+  roundShow.textContent = `Round ${roundCount}: ${result}`;
+  scoreShow.textContent = `Score - Human: ${humanScore}, Computer: ${computerScore}`;
 
   roundCount++;
 
