@@ -3,14 +3,12 @@ const playBtn = document.querySelector(".play-btn");
 const choiceButtons = document.querySelectorAll(".choice-btn");
 const choicesDiv = document.querySelector(".choices");
 const roundShow = document.querySelector(".round-show");
-const scoreShow = document.querySelector(".score-show");
 
 const playerScoreShow = document.querySelector(".player-score-show");
 const computerScoreShow = document.querySelector(".computer-score-show");
 const roundWin = document.querySelector(".round-win");
 
 const startScreen = document.querySelector("#start-screen");
-const resultScreen = document.querySelector("#result-screen");
 const gameOverScreen = document.querySelector("#game-over-screen");
 const gameWinnerText = document.querySelector(".game-winner");
 
@@ -37,7 +35,6 @@ function startGame() {
   stopGame = 0;
   startScreen.classList.add("hidden");
   choicesDiv.classList.remove("hidden");
-  resultScreen.classList.remove("hidden");
 }
 
 // get the Computer Choice
@@ -78,7 +75,6 @@ function handleChoice(e) {
   playerScoreShow.textContent = `PLAYER SCORE: ${humanScore}`;
   computerScoreShow.textContent = `COMPUTER SCORE: ${humanScore}`;
   roundWin.textContent = result;
-  scoreShow.textContent = `Score - Human: ${humanScore}, Computer: ${computerScore}`;
 
   roundCount++;
 
@@ -86,7 +82,6 @@ function handleChoice(e) {
 
   // Display final result
   if (gameOver) {
-    // scoreShow.textContent = `Score - Human: ${humanScore}, Computer: ${computerScore}`;
     let finalResult;
     if (humanScore > computerScore) {
       finalResult = "Game Winner is Human";
@@ -101,14 +96,12 @@ function handleChoice(e) {
     // end button selection
     restartBtn.addEventListener("click", () => {
       gameOverScreen.classList.add("hidden");
-      resultScreen.classList.add("hidden");
       // reset stopGame so can play again
       startGame();
     });
 
     mainMenuBtn.addEventListener("click", () => {
       gameOverScreen.classList.add("hidden");
-      resultScreen.classList.add("hidden");
       startScreen.classList.remove("hidden");
     });
   }
