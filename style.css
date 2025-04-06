@@ -49,7 +49,8 @@ button:hover {
   flex-direction: row;
   gap: 16px;
 }
-.title {
+.title,
+.round-win {
   text-align: center;
   font-family: "Bebas Neue", sans-serif;
   font-size: 48px;
@@ -83,4 +84,8 @@ button:hover {
 /*Game Over Screen*/
 #game-over-screen {
   text-align: center;
+}
+/* Game Styles */
+.round-win {
+  font-size: 52px;
 }

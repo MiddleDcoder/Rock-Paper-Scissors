@@ -24,7 +24,6 @@ playBtn.addEventListener("click", startGame);
 // play Button function
 function startGame() {
   // reset the text shows
-  roundShow.textContent = "";
   playerScoreShow.textContent = "";
   computerScoreShow.textContent = "";
   roundWin.textContent = "";
@@ -35,6 +34,8 @@ function startGame() {
   stopGame = 0;
   startScreen.classList.add("hidden");
   choicesDiv.classList.remove("hidden");
+
+  roundShow.textContent = `Round ${roundCount} Fight!`;
 }
 
 // get the Computer Choice
@@ -63,6 +64,11 @@ function playRound(humanChoice, computerChoice) {
   }
 }
 
+// Timeout to clear the roundWin result
+function clearRound() {
+  return (roundWin.textContent = "");
+}
+
 // Handle the choices
 function handleChoice(e) {
   if (stopGame === maxPoints) return;
@@ -71,12 +77,15 @@ function handleChoice(e) {
   const computerChoice = getComputerChoice();
   const result = playRound(humanChoice, computerChoice);
 
-  roundShow.textContent = `Round ${roundCount} Fight!`;
   playerScoreShow.textContent = `PLAYER SCORE: ${humanScore}`;
   computerScoreShow.textContent = `COMPUTER SCORE: ${humanScore}`;
   roundWin.textContent = result;
 
   roundCount++;
+
+  setTimeout(clearRound, 2000);
+
+  roundShow.textContent = `Round ${roundCount} Fight!`;
 
   gameOver = computerScore === maxPoints || humanScore === maxPoints;
 
