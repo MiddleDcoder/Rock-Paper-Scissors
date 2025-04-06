@@ -9,27 +9,13 @@
   box-sizing: border-box;
 }
 .hidden {
-  display: none;
+  display: none !important;
 }
 body {
   padding: 5%;
   font-family: "Bebas Neue", sans-serif;
   background-color: var(--neutral-color);
   color: var(--primary-color);
-}
-div {
-  display: flex;
-  justify-self: center;
-  align-items: center;
-  flex-direction: column;
-}
-.title {
-  text-align: center;
-  font-family: "Bebas Neue", sans-serif;
-  font-size: 48px;
-  margin-bottom: 32px;
-  letter-spacing: 1.2;
-  letter-spacing: 1px;
 }
 p,
 li {
@@ -54,6 +40,7 @@ button {
   margin: 32px 0;
   cursor: pointer;
   transition: transform 0.2s ease;
+  margin: 20px 30px;
 }
 button:hover {
   transform: scale(1.05);
@@ -61,4 +48,39 @@ button:hover {
 .inline-buttons {
   flex-direction: row;
   gap: 16px;
+}
+.title {
+  text-align: center;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 48px;
+  margin-bottom: 32px;
+  letter-spacing: 1.2;
+  letter-spacing: 1px;
+}
+/* Start Screen */
+#start-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+/* Game Screen */
+#game-screen {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 30px;
+}
+.scores {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.choice-show {
+  display: flex;
+  justify-content: space-evenly;
+}
+/*Game Over Screen*/
+#game-over-screen {
+  text-align: center;
 }
