@@ -66,7 +66,8 @@ function playRound(humanChoice, computerChoice) {
 
 // Timeout to clear the roundWin result
 function clearRound() {
-  return (roundWin.textContent = "");
+  roundWin.textContent = "";
+  roundShow.textContent = `Round ${roundCount} Fight!`;
 }
 
 // Handle the choices
@@ -84,8 +85,6 @@ function handleChoice(e) {
   roundCount++;
 
   setTimeout(clearRound, 2000);
-
-  roundShow.textContent = `Round ${roundCount} Fight!`;
 
   gameOver = computerScore === maxPoints || humanScore === maxPoints;
 
