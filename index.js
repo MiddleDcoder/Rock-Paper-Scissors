@@ -5,6 +5,10 @@ const choicesDiv = document.querySelector(".choices");
 const roundShow = document.querySelector(".round-show");
 const scoreShow = document.querySelector(".score-show");
 
+const playerScoreShow = document.querySelector(".player-score-show");
+const computerScoreShow = document.querySelector(".computer-score-show");
+const roundWin = document.querySelector(".round-win");
+
 const startScreen = document.querySelector("#start-screen");
 const resultScreen = document.querySelector("#result-screen");
 const gameOverScreen = document.querySelector("#game-over-screen");
@@ -21,13 +25,18 @@ playBtn.addEventListener("click", startGame);
 
 // play Button function
 function startGame() {
+  // reset the text shows
+  roundShow.textContent = "";
+  playerScoreShow.textContent = "";
+  computerScoreShow.textContent = "";
+  roundWin.textContent = "";
   // Initialize score and round count
   roundCount = 1;
   humanScore = 0;
   computerScore = 0;
   stopGame = 0;
-  choicesDiv.classList.remove("hidden");
   startScreen.classList.add("hidden");
+  choicesDiv.classList.remove("hidden");
   resultScreen.classList.remove("hidden");
 }
 
@@ -50,10 +59,10 @@ function playRound(humanChoice, computerChoice) {
 
   if (winConditions) {
     humanScore++;
-    return `You win! ${humanChoice} beats ${computerChoice}`;
+    return `You win! 🥳 ${humanChoice} beats ${computerChoice}`;
   } else {
     computerScore++;
-    return `You lose! ${computerChoice} beats ${humanChoice}`;
+    return `You lose! 😔 ${computerChoice} beats ${humanChoice}`;
   }
 }
 
@@ -65,7 +74,10 @@ function handleChoice(e) {
   const computerChoice = getComputerChoice();
   const result = playRound(humanChoice, computerChoice);
 
-  roundShow.textContent = `Round ${roundCount}: ${result}`;
+  roundShow.textContent = `Round ${roundCount} Fight!`;
+  playerScoreShow.textContent = `PLAYER SCORE: ${humanScore}`;
+  computerScoreShow.textContent = `COMPUTER SCORE: ${humanScore}`;
+  roundWin.textContent = result;
   scoreShow.textContent = `Score - Human: ${humanScore}, Computer: ${computerScore}`;
 
   roundCount++;
@@ -74,6 +86,7 @@ function handleChoice(e) {
 
   // Display final result
   if (gameOver) {
+    // scoreShow.textContent = `Score - Human: ${humanScore}, Computer: ${computerScore}`;
     let finalResult;
     if (humanScore > computerScore) {
       finalResult = "Game Winner is Human";
