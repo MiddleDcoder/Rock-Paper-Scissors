@@ -1,6 +1,7 @@
 // Register Event Listeners global
 const playBtn = document.querySelector(".play-btn");
 const choiceButtons = document.querySelectorAll(".choice-btn");
+const allButtons = document.querySelector("button");
 const choicesDiv = document.querySelector(".choices");
 const roundShow = document.querySelector(".round-show");
 
@@ -34,13 +35,18 @@ function startGame() {
   stopGame = 0;
   startScreen.classList.add("hidden");
   choicesDiv.classList.remove("hidden");
+
   roundShow.classList.add("fight-text");
-  roundShow.setAttribute(
-    "style",
-    "animation: showRound 2.5s ease-in-out forwards;"
-  );
-  roundShow.textContent = `Round ${roundCount}... Fight!`;
-  offAnimation();
+  handleRoundAnimation();
+}
+
+// Disable buttons during animation
+function disableButtons() {
+  choiceButtons.forEach((btn) => (btn.disabled = true));
+}
+// Enable buttons again after animation finishes
+function enableButtons() {
+  choiceButtons.forEach((btn) => (btn.disabled = false));
 }
 
 // get the Computer Choice
@@ -69,21 +75,31 @@ function playRound(humanChoice, computerChoice) {
   }
 }
 
-// Destroy animation
-function offAnimation() {
-  setTimeout(() => {
-    roundShow.setAttribute("style", "animation: none; opacity: 1;");
-  }, 3500);
-}
-
-// Timeout to clear each Round
-function clearRound() {
-  roundWin.textContent = "";
+// Handle the animation and disabling button and enabling again
+function handleRoundAnimation() {
   roundShow.setAttribute(
     "style",
     "animation: showRound 2.5s ease-in-out forwards;"
   );
   roundShow.textContent = `Round ${roundCount}... Fight!`;
+
+  disableButtons();
+
+  setTimeout(() => {
+    enableButtons();
+    offAnimation();
+  }, 2500);
+}
+
+// Timeout to clear each Round
+function clearRound() {
+  roundWin.textContent = "";
+  handleRoundAnimation();
+}
+
+// Destroy animation
+function offAnimation() {
+  roundShow.setAttribute("style", "animation: none; opacity: 1;");
 }
 
 // Handle the choices
@@ -94,6 +110,8 @@ function handleChoice(e) {
   const computerChoice = getComputerChoice();
   const result = playRound(humanChoice, computerChoice);
 
+  disableButtons(); // disabled buttons after selecting move
+
   roundWin.textContent = result;
 
   playerScoreShow.textContent = `PLAYER SCORE: ${humanScore}`;
@@ -101,8 +119,7 @@ function handleChoice(e) {
 
   roundCount++;
 
-  setTimeout(clearRound, 2000);
-  offAnimation();
+  setTimeout(clearRound, 1500);
 
   gameOver = computerScore === maxPoints || humanScore === maxPoints;
 
