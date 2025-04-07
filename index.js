@@ -162,36 +162,37 @@ function handleChoice(e) {
 
   roundCount++;
 
-  setTimeout(clearRound, 1500);
-
   gameOver = computerScore === maxPoints || humanScore === maxPoints;
 
-  if (!gameOver) return; //stops the function for efficiency
-
+  if (!gameOver) {
+    setTimeout(clearRound, 1500);
+  }
   // Display final result
   if (gameOver) {
-    roundShow.classList.remove("fight-text");
-    let finalResult;
-    if (humanScore > computerScore) {
-      finalResult = "Game Winner is Human 🎉";
-    } else {
-      finalResult = "Game Winner is Computer";
-    }
-    choicesDiv.classList.add("hidden");
-    gameOverScreen.classList.remove("hidden");
-    gameWinnerText.textContent = finalResult;
-    stopGame = 5; // stop the game if still clicking the choices button
+    setTimeout(() => {
+      roundShow.classList.remove("fight-text");
+      let finalResult;
+      if (humanScore > computerScore) {
+        finalResult = "Game Winner is Human 🎉";
+      } else {
+        finalResult = "Game Winner is Computer";
+      }
+      choicesDiv.classList.add("hidden");
+      gameOverScreen.classList.remove("hidden");
+      gameWinnerText.textContent = finalResult;
+      stopGame = 5; // stop the game if still clicking the choices button
 
-    // end button selection
-    restartBtn.addEventListener("click", () => {
-      gameOverScreen.classList.add("hidden");
-      startGame();
-    });
+      // end button selection
+      restartBtn.addEventListener("click", () => {
+        gameOverScreen.classList.add("hidden");
+        startGame();
+      });
 
-    mainMenuBtn.addEventListener("click", () => {
-      gameOverScreen.classList.add("hidden");
-      startScreen.classList.remove("hidden");
-    });
+      mainMenuBtn.addEventListener("click", () => {
+        gameOverScreen.classList.add("hidden");
+        startScreen.classList.remove("hidden");
+      });
+    }, 2000);
   }
 }
 
