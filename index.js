@@ -34,8 +34,13 @@ function startGame() {
   stopGame = 0;
   startScreen.classList.add("hidden");
   choicesDiv.classList.remove("hidden");
-
+  roundShow.classList.add("fight-text");
+  roundShow.setAttribute(
+    "style",
+    "animation: showRound 2.5s ease-in-out forwards;"
+  );
   roundShow.textContent = `Round ${roundCount}... Fight!`;
+  offAnimation();
 }
 
 // get the Computer Choice
@@ -64,9 +69,20 @@ function playRound(humanChoice, computerChoice) {
   }
 }
 
+// Destroy animation
+function offAnimation() {
+  setTimeout(() => {
+    roundShow.setAttribute("style", "animation: none; opacity: 1;");
+  }, 3500);
+}
+
 // Timeout to clear each Round
 function clearRound() {
   roundWin.textContent = "";
+  roundShow.setAttribute(
+    "style",
+    "animation: showRound 2.5s ease-in-out forwards;"
+  );
   roundShow.textContent = `Round ${roundCount}... Fight!`;
 }
 
@@ -86,6 +102,7 @@ function handleChoice(e) {
   roundCount++;
 
   setTimeout(clearRound, 2000);
+  offAnimation();
 
   gameOver = computerScore === maxPoints || humanScore === maxPoints;
 
@@ -93,6 +110,7 @@ function handleChoice(e) {
 
   // Display final result
   if (gameOver) {
+    roundShow.classList.remove("fight-text");
     let finalResult;
     if (humanScore > computerScore) {
       finalResult = "Game Winner is Human 🎉";

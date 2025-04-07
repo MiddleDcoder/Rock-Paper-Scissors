@@ -52,6 +52,9 @@ button:hover {
   flex-direction: row;
   gap: 16px;
 }
+.inline-buttons button {
+  width: 150px;
+}
 .title,
 .round-win {
   text-align: center;
@@ -97,9 +100,6 @@ button:hover {
   justify-content: center;
   align-items: center;
 }
-.round-show {
-  font-size: 26px;
-}
 .choice-show p {
   padding: 50px;
 }
@@ -110,4 +110,33 @@ button:hover {
   font-family: "Orbitron", sans-serif;
   font-size: 60px;
   padding: 40px 0;
+}
+/* Animation for Round Fight text */
+.fight-text {
+  font-size: 64px;
+  text-transform: uppercase;
+  animation: showRound 2.5s ease-in-out forwards;
+  position: relative;
+}
+@keyframes showRound {
+  0% {
+    opacity: 0;
+    transform: scale(0.5) translateY(-50px);
+  }
+  25% {
+    opacity: 1;
+    transform: scale(1.2) translateY(0);
+  }
+  50% {
+    transform: scale(1);
+  }
+  75% {
+    transform: scale(1.2);
+    color: red;
+    text-shadow: 0 0 20px yellow;
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0px);
+  }
 }
