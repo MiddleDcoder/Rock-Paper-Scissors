@@ -95,6 +95,8 @@ function handleRoundAnimation() {
 // Timeout to clear each Round
 function clearRound() {
   roundWin.textContent = "";
+  playerChoiceShow.innerHTML = "🤔";
+  computerChoiceShow.innerHTML = "🤖";
   handleRoundAnimation();
 }
 
