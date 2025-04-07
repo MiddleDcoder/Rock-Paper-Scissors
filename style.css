@@ -49,7 +49,7 @@ i.fas {
   font-size: 85px;
   padding: 8px 0;
 }
-.choice-btn .fa-hand-scissors {
+.fa-hand-scissors {
   rotate: 90deg;
 }
 .play-btn {
@@ -90,9 +90,13 @@ i.fas {
   justify-content: space-between;
   align-items: center;
 }
+.scores p {
+  font-size: 26px;
+}
 .choice-show {
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
 }
 /*Game Over Screen*/
 #game-over-screen {
@@ -107,8 +111,14 @@ i.fas {
   justify-content: center;
   align-items: center;
 }
-.choice-show p {
+.choice-show {
   padding: 50px;
+}
+.choice-show p {
+  font-size: 50px;
+}
+.choice-show .fas {
+  font-size: 180px;
 }
 .showcase {
   margin-bottom: 35px;

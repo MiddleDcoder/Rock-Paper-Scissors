@@ -103,6 +103,18 @@ function offAnimation() {
   roundShow.setAttribute("style", "animation: none; opacity: 1;");
 }
 
+// Player  vs Computer - choice showcase
+function choiceShow(humanChoice, computerChoice) {
+  const icons = {
+    Rock: `<i class="fas fa-hand-fist"></i>`,
+    Paper: `<i class="fas fa-hand"></i>`,
+    Scissors: `<i class="fas fa-hand-scissors"></i>`,
+  };
+
+  playerChoiceShow.innerHTML = icons[humanChoice];
+  computerChoiceShow.innerHTML = icons[computerChoice];
+}
+
 // Handle the choices
 function handleChoice(e) {
   if (stopGame === maxPoints) return;
@@ -119,8 +131,7 @@ function handleChoice(e) {
   computerScoreShow.textContent = `COMPUTER SCORE: ${computerScore}`;
 
   // Player  vs Computer - choice showcase
-  playerChoiceShow.textContent = humanChoice;
-  computerChoiceShow.textContent = computerChoice;
+  choiceShow(humanChoice, computerChoice);
 
   roundCount++;
 
