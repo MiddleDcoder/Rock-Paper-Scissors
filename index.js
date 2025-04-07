@@ -1,7 +1,8 @@
 // Register Event Listeners global
 const playBtn = document.querySelector(".play-btn");
 const choiceButtons = document.querySelectorAll(".choice-btn");
-const allButtons = document.querySelector("button");
+const playerChoiceShow = document.querySelector(".player-choice");
+const computerChoiceShow = document.querySelector(".computer-choice");
 const choicesDiv = document.querySelector(".choices");
 const roundShow = document.querySelector(".round-show");
 
@@ -116,6 +117,10 @@ function handleChoice(e) {
 
   playerScoreShow.textContent = `PLAYER SCORE: ${humanScore}`;
   computerScoreShow.textContent = `COMPUTER SCORE: ${computerScore}`;
+
+  // Player  vs Computer - choice showcase
+  playerChoiceShow.textContent = humanChoice;
+  computerChoiceShow.textContent = computerChoice;
 
   roundCount++;
 
