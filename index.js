@@ -5,6 +5,7 @@ const playerChoiceShow = document.querySelector(".player-choice");
 const computerChoiceShow = document.querySelector(".computer-choice");
 const choicesDiv = document.querySelector(".choices");
 const roundShow = document.querySelector(".round-show");
+const timerElem = document.querySelector(".timer");
 
 const playerScoreShow = document.querySelector(".player-score-show");
 const computerScoreShow = document.querySelector(".computer-score-show");
@@ -38,6 +39,7 @@ function startGame() {
   choicesDiv.classList.remove("hidden");
 
   roundShow.classList.add("fight-text");
+  timerElem.classList.add("fight-text");
   handleRoundAnimation();
 }
 
@@ -78,7 +80,12 @@ function playRound(humanChoice, computerChoice) {
 
 // Handle the animation and disabling button and enabling again
 function handleRoundAnimation() {
+  timerChoices();
   roundShow.setAttribute(
+    "style",
+    "animation: showRound 2.5s ease-in-out forwards;"
+  );
+  timerElem.setAttribute(
     "style",
     "animation: showRound 2.5s ease-in-out forwards;"
   );
@@ -103,6 +110,22 @@ function clearRound() {
 // Destroy animation
 function offAnimation() {
   roundShow.setAttribute("style", "animation: none; opacity: 1;");
+  timerElem.setAttribute("style", "animation: none; opacity: 1;");
+}
+
+// Timer before choices
+function timerChoices() {
+  let count = 4;
+
+  const countdown = setInterval(() => {
+    count--;
+    if (count > 0) {
+      timerElem.textContent = count;
+    } else {
+      timerElem.textContent = "VS";
+      clearInterval(countdown);
+    }
+  }, 600);
 }
 
 // Player  vs Computer - choice showcase

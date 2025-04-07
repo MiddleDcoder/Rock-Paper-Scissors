@@ -116,6 +116,7 @@ i.fas {
 }
 .vs {
   font-size: 50px;
+  width: 300px;
 }
 .player-choice,
 .computer-choice {
@@ -136,11 +137,10 @@ i.fas {
 .computer-choice-show {
   font-size: 40px;
 }
-.scores p {
+.border-scores {
   border: 2px solid var(--secondary-color);
   padding: 12px;
   border-radius: 12px;
-  opacity: 0;
 }
 /* Animation for Round Fight text */
 .fight-text {
