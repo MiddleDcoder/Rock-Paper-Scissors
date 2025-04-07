@@ -1,4 +1,4 @@
-// Register Event Listeners global
+// Register selectors global
 const playBtn = document.querySelector(".play-btn");
 const choiceButtons = document.querySelectorAll(".choice-btn");
 const playerChoiceShow = document.querySelector(".player-choice");
@@ -129,6 +129,8 @@ function handleChoice(e) {
 
   playerScoreShow.textContent = `PLAYER SCORE: ${humanScore}`;
   computerScoreShow.textContent = `COMPUTER SCORE: ${computerScore}`;
+  playerScoreShow.classList.add("border-scores");
+  computerScoreShow.classList.add("border-scores");
 
   // Player  vs Computer - choice showcase
   choiceShow(humanChoice, computerChoice);
