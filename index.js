@@ -35,7 +35,7 @@ function startGame() {
   startScreen.classList.add("hidden");
   choicesDiv.classList.remove("hidden");
 
-  roundShow.textContent = `Round ${roundCount} Fight!`;
+  roundShow.textContent = `Round ${roundCount}... Fight!`;
 }
 
 // get the Computer Choice
@@ -64,10 +64,10 @@ function playRound(humanChoice, computerChoice) {
   }
 }
 
-// Timeout to clear the roundWin result
+// Timeout to clear each Round
 function clearRound() {
   roundWin.textContent = "";
-  roundShow.textContent = `Round ${roundCount} Fight!`;
+  roundShow.textContent = `Round ${roundCount}... Fight!`;
 }
 
 // Handle the choices
@@ -78,9 +78,10 @@ function handleChoice(e) {
   const computerChoice = getComputerChoice();
   const result = playRound(humanChoice, computerChoice);
 
-  playerScoreShow.textContent = `PLAYER SCORE: ${humanScore}`;
-  computerScoreShow.textContent = `COMPUTER SCORE: ${humanScore}`;
   roundWin.textContent = result;
+
+  playerScoreShow.textContent = `PLAYER SCORE: ${humanScore}`;
+  computerScoreShow.textContent = `COMPUTER SCORE: ${computerScore}`;
 
   roundCount++;
 
@@ -88,11 +89,13 @@ function handleChoice(e) {
 
   gameOver = computerScore === maxPoints || humanScore === maxPoints;
 
+  if (!gameOver) return; //stops the function for efficiency
+
   // Display final result
   if (gameOver) {
     let finalResult;
     if (humanScore > computerScore) {
-      finalResult = "Game Winner is Human";
+      finalResult = "Game Winner is Human 🎉";
     } else {
       finalResult = "Game Winner is Computer";
     }
@@ -104,7 +107,6 @@ function handleChoice(e) {
     // end button selection
     restartBtn.addEventListener("click", () => {
       gameOverScreen.classList.add("hidden");
-      // reset stopGame so can play again
       startGame();
     });
 

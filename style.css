@@ -45,6 +45,9 @@ button {
 button:hover {
   transform: scale(1.05);
 }
+.play-btn {
+  margin: 40px auto;
+}
 .inline-buttons {
   flex-direction: row;
   gap: 16px;
@@ -55,7 +58,6 @@ button:hover {
   font-family: "Bebas Neue", sans-serif;
   font-size: 48px;
   margin-bottom: 32px;
-  letter-spacing: 1.2;
   letter-spacing: 1px;
 }
 /* Start Screen */
@@ -64,6 +66,7 @@ button:hover {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  gap: 4px;
 }
 /* Game Screen */
 #game-screen {
@@ -88,4 +91,23 @@ button:hover {
 /* Game Styles */
 .round-win {
   font-size: 52px;
+  height: 160px;
+  margin-bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.round-show {
+  font-size: 26px;
+}
+.choice-show p {
+  padding: 50px;
+}
+.showcase {
+  margin-bottom: 35px;
+}
+.game-winner {
+  font-family: "Orbitron", sans-serif;
+  font-size: 60px;
+  padding: 40px 0;
 }
