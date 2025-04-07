@@ -14,8 +14,11 @@
       href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
-
     <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
   </head>
   <body>
     <!-- Start Screen -->
@@ -54,16 +57,22 @@
       <div class="showcase">
         <p class="round-win"></p>
         <div class="choice-show">
-          <p>PLAYER CHOICE SHOW</p>
+          <p class="player-choice">PLAYER CHOICE SHOW</p>
           <p>VS</p>
-          <p>COMPUTER CHOICE SHOW</p>
+          <p class="computer-choice">COMPUTER CHOICE SHOW</p>
         </div>
       </div>
       <p>Choose your move, Rock, Paper, or Scissors?</p>
       <div class="inline-buttons">
-        <button class="choice-btn" data-choice="Rock">Rock</button>
-        <button class="choice-btn" data-choice="Paper">Paper</button>
-        <button class="choice-btn" data-choice="Scissors">Scissors</button>
+        <button class="choice-btn" data-choice="Rock">
+          <i class="fas fa-hand-fist"></i> <span>Rock</span>
+        </button>
+        <button class="choice-btn" data-choice="Paper">
+          <i class="fas fa-hand"></i> <span>Paper</span>
+        </button>
+        <button class="choice-btn" data-choice="Scissors">
+          <i class="fas fa-hand-scissors"></i> <span>Scissors</span>
+        </button>
       </div>
     </div>
 

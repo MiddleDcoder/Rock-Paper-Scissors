@@ -106,7 +106,7 @@ function offAnimation() {
 function handleChoice(e) {
   if (stopGame === maxPoints) return;
 
-  const humanChoice = e.target.getAttribute("data-choice"); // get the Human Choice
+  const humanChoice = e.currentTarget.getAttribute("data-choice"); // get the Human Choice
   const computerChoice = getComputerChoice();
   const result = playRound(humanChoice, computerChoice);
 
