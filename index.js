@@ -27,8 +27,7 @@ playBtn.addEventListener("click", startGame);
 // play Button function
 function startGame() {
   // reset the text shows
-  clearScores();
-  roundWin.textContent = "";
+  reset();
   // Initialize score and round count
   roundCount = 1;
   humanScore = 0;
@@ -107,9 +106,12 @@ function clearRound() {
 }
 
 // Clear player scores
-function clearScores() {
+function reset() {
+  roundWin.textContent = "";
   playerScoreShow.textContent = "";
   computerScoreShow.textContent = "";
+  playerChoiceShow.innerHTML = "🤔";
+  computerChoiceShow.innerHTML = "🤖";
 }
 
 // Destroy animation
