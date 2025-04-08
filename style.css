@@ -25,6 +25,7 @@ li {
   line-height: 1.6;
   letter-spacing: 0.5px;
   list-style: none;
+  text-align: center;
 }
 ul {
   margin: 16px auto;
@@ -89,14 +90,23 @@ i.fas {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+@media screen and (max-width: 730px) {
+  .scores {
+    justify-content: center;
+  }
 }
 .scores p {
   font-size: 26px;
+  text-align: center;
 }
 .choice-show {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  flex-wrap: wrap;
 }
 /*Game Over Screen*/
 #game-over-screen {
