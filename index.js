@@ -27,8 +27,7 @@ playBtn.addEventListener("click", startGame);
 // play Button function
 function startGame() {
   // reset the text shows
-  playerScoreShow.textContent = "";
-  computerScoreShow.textContent = "";
+  clearScores();
   roundWin.textContent = "";
   // Initialize score and round count
   roundCount = 1;
@@ -107,6 +106,12 @@ function clearRound() {
   handleRoundAnimation();
 }
 
+// Clear player scores
+function clearScores() {
+  playerScoreShow.textContent = "";
+  computerScoreShow.textContent = "";
+}
+
 // Destroy animation
 function offAnimation() {
   roundShow.setAttribute("style", "animation: none; opacity: 1;");
@@ -171,6 +176,8 @@ function handleChoice(e) {
   if (gameOver) {
     setTimeout(() => {
       roundShow.classList.remove("fight-text");
+      playerScoreShow.classList.remove("border-scores");
+      computerScoreShow.classList.remove("border-scores");
       let finalResult;
       if (humanScore > computerScore) {
         finalResult = "Game Winner is Human 🎉";
@@ -199,4 +206,30 @@ function handleChoice(e) {
 // Attach event listener to each choice button
 choiceButtons.forEach((button) => {
   button.addEventListener("click", handleChoice);
+});
+
+//Auto play music for fun
+window.addEventListener("load", () => {
+  const audio = document.getElementById("bg-music");
+
+  audio.play().catch((err) => {
+    console.warn("Autoplay blocked. Waiting for user interaction.", err);
+
+    // Set up fallback on click
+    const resumeAudio = () => {
+      audio
+        .play()
+        .then(() => {
+          console.log("Audio started after user interaction!");
+        })
+        .catch((error) => {
+          console.error("Still failed to play audio:", error);
+        });
+
+      // Remove this listener after first click
+      document.removeEventListener("click", resumeAudio);
+    };
+
+    document.addEventListener("click", resumeAudio);
+  });
 });
