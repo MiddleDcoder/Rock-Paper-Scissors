@@ -54,7 +54,11 @@ i.fas {
   rotate: 90deg;
 }
 .play-btn {
-  margin: 40px auto;
+  margin: 40px 0 10px 0;
+}
+.play-btn,
+.settings-btn {
+  width: 175px !important;
 }
 .inline-buttons {
   flex-direction: row;
@@ -180,4 +184,10 @@ i.fas {
     opacity: 1;
     transform: scale(1) translateY(0px);
   }
+}
+#settings-screen {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }

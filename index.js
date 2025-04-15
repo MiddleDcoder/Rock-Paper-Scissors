@@ -17,6 +17,13 @@ const gameWinnerText = document.querySelector(".game-winner");
 
 const restartBtn = document.querySelector(".restart-btn");
 const mainMenuBtn = document.querySelector(".main-menu-btn");
+const settingsBtn = document.querySelector(".settings-btn");
+const settingScreen = document.querySelector("#settings-screen");
+
+const audio = document.querySelector("#bg-music");
+const bgMusicSetting = document.querySelector("#bg-music-setting");
+const pointsSetting = document.querySelector("#points-setting");
+const backMainMenu = document.querySelector("#back-main-menu");
 
 // Declare global variables scope
 let roundCount, humanScore, computerScore, gameOver, stopGame;
@@ -212,8 +219,6 @@ choiceButtons.forEach((button) => {
 
 //Auto play music for fun
 window.addEventListener("load", () => {
-  const audio = document.getElementById("bg-music");
-
   audio.play().catch((err) => {
     console.warn("Autoplay blocked. Waiting for user interaction.", err);
 
@@ -235,3 +240,33 @@ window.addEventListener("load", () => {
     document.addEventListener("click", resumeAudio);
   });
 });
+
+// Settings feature
+settingsBtn.addEventListener("click", () => {
+  startScreen.classList.add("hidden");
+  settingScreen.classList.remove("hidden");
+});
+// Back button
+backMainMenu.addEventListener("click", () => {
+  startScreen.classList.remove("hidden");
+  settingScreen.classList.add("hidden");
+});
+
+// BG Music Setting
+bgMusicSetting.addEventListener("click", () => {
+  if (audio.paused) {
+    audio
+      .play()
+      .then(() => {
+        bgMusicSetting.textContent = "Pause Music";
+      })
+      .catch((err) => {
+        console.warn("Playback failed", err);
+      });
+  } else {
+    audio.pause();
+    bgMusicSetting.textContent = "Play Music";
+  }
+});
+
+// Set Points Setting
