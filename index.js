@@ -269,4 +269,29 @@ bgMusicSetting.addEventListener("click", () => {
   }
 });
 
-// Set Points Setting
+// Set Points Event Setting
+pointsSetting.addEventListener("click", setPoints);
+// function to handle the set points with validation
+function setPoints() {
+  let inputPoints, input;
+  let isValid = false;
+  do {
+    input = prompt(
+      "Please enter how many points to win between 3 to 5 as default to 15 max: ",
+      "5"
+    );
+    // cancel prompt action and back to default
+    if (input === null) return 5;
+
+    inputPoints = parseInt(input);
+
+    // Validate input
+    if (isNaN(inputPoints) || inputPoints < 3 || inputPoints > 15) {
+      alert("Please enter a valid number between 3 and 15.");
+    } else {
+      isValid = true;
+    }
+  } while (!isValid);
+
+  return inputPoints;
+}
