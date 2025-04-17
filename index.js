@@ -46,6 +46,7 @@ function startGame() {
   // reset the text shows
   reset();
   // Initialize score and round count
+  roundCount = 1;
   humanScore = 0;
   computerScore = 0;
   stopGame = 0;
