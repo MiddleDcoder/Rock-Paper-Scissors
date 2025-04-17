@@ -26,8 +26,18 @@ const pointsSetting = document.querySelector("#points-setting");
 const backMainMenu = document.querySelector("#back-main-menu");
 
 // Declare global variables scope
-let roundCount, humanScore, computerScore, gameOver, stopGame;
-let maxPoints = 5;
+let roundCount,
+  humanScore,
+  computerScore,
+  gameOver,
+  stopGame,
+  setMaxPoints,
+  maxPoints;
+
+// set maxPoints or default 5
+if (setMaxPoints == null) {
+  maxPoints = 5;
+}
 
 playBtn.addEventListener("click", startGame);
 
@@ -36,7 +46,6 @@ function startGame() {
   // reset the text shows
   reset();
   // Initialize score and round count
-  roundCount = 1;
   humanScore = 0;
   computerScore = 0;
   stopGame = 0;
@@ -196,7 +205,7 @@ function handleChoice(e) {
       choicesDiv.classList.add("hidden");
       gameOverScreen.classList.remove("hidden");
       gameWinnerText.textContent = finalResult;
-      stopGame = 5; // stop the game if still clicking the choices button
+      stopGame = maxPoints; // stop the game if still clicking the choices button
 
       // end button selection
       restartBtn.addEventListener("click", () => {
@@ -270,7 +279,10 @@ bgMusicSetting.addEventListener("click", () => {
 });
 
 // Set Points Event Setting
-pointsSetting.addEventListener("click", setPoints);
+pointsSetting.addEventListener("click", () => {
+  setMaxPoints = setPoints();
+  maxPoints = setMaxPoints;
+});
 // function to handle the set points with validation
 function setPoints() {
   let inputPoints, input;
