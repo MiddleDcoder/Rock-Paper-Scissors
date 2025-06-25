@@ -3,10 +3,10 @@
 ](https://middledcoder.github.io/Rock-Paper-Scissors/)
 
 ## Main Menu
-[Main Menu](https://github.com/MiddleDcoder/Rock-Paper-Scissors/blob/main/screenshots/main-menu.png)
+![Main Menu](https://github.com/MiddleDcoder/Rock-Paper-Scissors/blob/main/screenshots/main-menu.png)
 
 ## Settings
-[Settings](https://github.com/MiddleDcoder/Rock-Paper-Scissors/blob/main/screenshots/settings.png)
+![Settings](https://github.com/MiddleDcoder/Rock-Paper-Scissors/blob/main/screenshots/settings.png)
 
 ## Round Game
-[Round Game](https://github.com/MiddleDcoder/Rock-Paper-Scissors/blob/main/screenshots/round-game.png)
+![Round Game](https://github.com/MiddleDcoder/Rock-Paper-Scissors/blob/main/screenshots/round-game.png)
