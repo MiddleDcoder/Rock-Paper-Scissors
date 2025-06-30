@@ -16,6 +16,10 @@ body {
   font-family: "Bebas Neue", sans-serif;
   background-color: var(--neutral-color);
   color: var(--primary-color);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 p,
 li {
