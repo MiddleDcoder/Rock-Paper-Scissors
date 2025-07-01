@@ -24,7 +24,7 @@ body {
 p,
 li {
   font-family: "Orbitron", sans-serif;
-  font-size: 16px;
+  font-size: 1.25rem;
   font-weight: 500;
   line-height: 1.6;
   letter-spacing: 0.5px;
@@ -75,7 +75,7 @@ i.fas {
 .round-win {
   text-align: center;
   font-family: "Bebas Neue", sans-serif;
-  font-size: 48px;
+  font-size: 4rem;
   margin-bottom: 32px;
   letter-spacing: 1px;
 }
