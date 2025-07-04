@@ -1,5 +1,5 @@
 # Rock-Paper-Scissors
-[Basic Rock Paper Scissors game
+[Rock Paper Scissors game
 ](https://middledcoder.github.io/Rock-Paper-Scissors/)
 
 ## Main Menu
