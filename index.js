@@ -96,14 +96,8 @@ function playRound(humanChoice, computerChoice) {
 // Handle the animation and disabling button and enabling again
 function handleRoundAnimation() {
   timerChoices();
-  roundShow.setAttribute(
-    "style",
-    "animation: showRound 2.5s ease-in-out forwards;"
-  );
-  timerElem.setAttribute(
-    "style",
-    "animation: showRound 2.5s ease-in-out forwards;"
-  );
+  roundShow.classList.add("show-round-animation");
+  timerElem.classList.add("show-round-animation");
   roundShow.textContent = `Round ${roundCount}... Fight!`;
 
   disableButtons();
@@ -112,6 +106,12 @@ function handleRoundAnimation() {
     enableButtons();
     offAnimation();
   }, 2500);
+}
+
+// Destroy animation
+function offAnimation() {
+  roundShow.setAttribute("style", "animation: none; opacity: 1;");
+  timerElem.setAttribute("style", "animation: none; opacity: 1;");
 }
 
 // Timeout to clear each Round
@@ -129,12 +129,6 @@ function reset() {
   computerScoreShow.textContent = "";
   playerChoiceShow.innerHTML = "🤔";
   computerChoiceShow.innerHTML = "🤖";
-}
-
-// Destroy animation
-function offAnimation() {
-  roundShow.setAttribute("style", "animation: none; opacity: 1;");
-  timerElem.setAttribute("style", "animation: none; opacity: 1;");
 }
 
 // Timer before choices
