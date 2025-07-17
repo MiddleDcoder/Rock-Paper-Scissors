@@ -131,11 +131,11 @@ function reset() {
   computerChoiceShow.innerHTML = "🤖";
 }
 
-// Timer before choices
+let countdown;
 function timerChoices() {
   let count = 4;
 
-  const countdown = setInterval(() => {
+  countdown = setInterval(() => {
     count--;
     if (count > 0) {
       timerElem.textContent = count;
@@ -144,6 +144,15 @@ function timerChoices() {
       clearInterval(countdown);
     }
   }, 600);
+}
+
+function reset() {
+  clearInterval(countdown);
+  roundWin.textContent = "";
+  playerScoreShow.textContent = "";
+  computerScoreShow.textContent = "";
+  playerChoiceShow.innerHTML = "🤔";
+  computerChoiceShow.innerHTML = "🤖";
 }
 
 // Player  vs Computer - choice showcase
