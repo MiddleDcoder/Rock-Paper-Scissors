@@ -110,8 +110,8 @@ function handleRoundAnimation() {
 
 // Destroy animation
 function offAnimation() {
-  roundShow.setAttribute("style", "animation: none; opacity: 1;");
-  timerElem.setAttribute("style", "animation: none; opacity: 1;");
+  roundShow.classList.remove("show-round-animation");
+  timerElem.classList.remove("show-round-animation");
 }
 
 // Timeout to clear each Round
