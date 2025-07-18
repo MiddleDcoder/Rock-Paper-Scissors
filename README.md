@@ -5,7 +5,7 @@
 ## Main Menu
 ![Main Menu](https://github.com/MiddleDcoder/Rock-Paper-Scissors/blob/main/screenshots/main-menu.png)
 
-## Settings
+## Settings Menu
 ![Settings](https://github.com/MiddleDcoder/Rock-Paper-Scissors/blob/main/screenshots/settings.png)
 
 ## Round Game
