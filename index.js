@@ -73,7 +73,14 @@ function getComputerChoice() {
   return choices[Math.floor(Math.random() * 3)];
 }
 
-// play per round
+/**
+ * Plays a single round of Rock-Paper-Scissors, updates human and computer scores,
+ * and returns the result message based on the choices provided.
+ *
+ * @param {string} humanChoice - The human player's choice ("Rock", "Paper", or "Scissors").
+ * @param {string} computerChoice - The computer's choice ("Rock", "Paper", or "Scissors").
+ * @returns {string} Result message indicating win, loss, or draw.
+ */
 function playRound(humanChoice, computerChoice) {
   if (humanChoice === computerChoice) {
     return "Draw! Please try again.";
@@ -145,7 +152,10 @@ function timerChoices() {
     }
   }, 600);
 }
-
+/**
+ * Resets the game display by clearing round results, player and computer scores,
+ * and setting the player and computer choice icons to their default states.
+ */
 function reset() {
   clearInterval(countdown);
   roundWin.textContent = "";
