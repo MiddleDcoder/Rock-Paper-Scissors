@@ -128,8 +128,10 @@ function clearRound() {
   computerChoiceShow.innerHTML = "🤖";
   handleRoundAnimation();
 }
-
-// Clear player scores
+/**
+ * Resets the display for round results, player and computer scores,
+ * and sets default icons for player and computer choices.
+ */
 function reset() {
   roundWin.textContent = "";
   playerScoreShow.textContent = "";
