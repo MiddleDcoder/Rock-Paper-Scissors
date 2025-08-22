@@ -134,8 +134,8 @@ function reset() {
   roundWin.textContent = "";
   playerScoreShow.textContent = "";
   computerScoreShow.textContent = "";
-  playerChoiceShow.innerHTML = "🤔";
-  computerChoiceShow.innerHTML = "🤖";
+  playerChoiceShow.textContent = "🤔";
+  computerChoiceShow.textContent = "🤖";
 }
 
 let countdown;
