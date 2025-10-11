@@ -140,10 +140,11 @@ function reset() {
   computerChoiceShow.textContent = "🤖";
 }
 
+let countdown;
 function timerChoices() {
   let count = 4;
 
-  let countdown = setInterval(() => {
+  countdown = setInterval(() => {
     count--;
     if (count > 0) {
       timerElem.textContent = count;

@@ -92,7 +92,7 @@ i.fas {
   display: flex;
   flex-direction: column;
   text-align: center;
-  gap: 30px;
+  gap: 10px;
 }
 .scores {
   display: flex;
@@ -138,7 +138,7 @@ i.fas {
 }
 .player-choice,
 .computer-choice {
-  font-size: 180px;
+  font-size: 140px;
 }
 .choice-show .fas {
   font-size: 180px;
@@ -162,10 +162,12 @@ i.fas {
 }
 /* Animation for Round Fight text */
 .fight-text {
-  font-size: 64px;
+  font-size: 52px;
   text-transform: uppercase;
   animation: showRound 2.5s ease-in-out forwards;
   position: relative;
+  margin-top: 30px;
+  padding: 30px;
 }
 @keyframes showRound {
   0% {
