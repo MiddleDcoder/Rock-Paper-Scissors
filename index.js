@@ -103,8 +103,14 @@ function playRound(humanChoice, computerChoice) {
 // Handle the animation and disabling button and enabling again
 function handleRoundAnimation() {
   timerChoices();
-  roundShow.classList.add("show-round-animation");
-  timerElem.classList.add("show-round-animation");
+  roundShow.setAttribute(
+    "style",
+    "animation: showRound 2.5s ease-in-out forwards;"
+  );
+  timerElem.setAttribute(
+    "style",
+    "animation: showRound 2.5s ease-in-out forwards;"
+  );
   roundShow.textContent = `Round ${roundCount}... Fight!`;
 
   disableButtons();
@@ -115,12 +121,6 @@ function handleRoundAnimation() {
   }, 2500);
 }
 
-// Destroy animation
-function offAnimation() {
-  roundShow.classList.remove("show-round-animation");
-  timerElem.classList.remove("show-round-animation");
-}
-
 // Timeout to clear each Round
 function clearRound() {
   roundWin.textContent = "";
@@ -128,35 +128,10 @@ function clearRound() {
   computerChoiceShow.innerHTML = "🤖";
   handleRoundAnimation();
 }
+
 /**
  * Resets the display for round results, player and computer scores,
  * and sets default icons for player and computer choices.
- */
-function reset() {
-  roundWin.textContent = "";
-  playerScoreShow.textContent = "";
-  computerScoreShow.textContent = "";
-  playerChoiceShow.textContent = "🤔";
-  computerChoiceShow.textContent = "🤖";
-}
-
-let countdown;
-function timerChoices() {
-  let count = 4;
-
-  countdown = setInterval(() => {
-    count--;
-    if (count > 0) {
-      timerElem.textContent = count;
-    } else {
-      timerElem.textContent = "VS";
-      clearInterval(countdown);
-    }
-  }, 600);
-}
-/**
- * Resets the game display by clearing round results, player and computer scores,
- * and setting the player and computer choice icons to their default states.
  */
 function reset() {
   clearInterval(countdown);
@@ -165,6 +140,29 @@ function reset() {
   computerScoreShow.textContent = "";
   playerChoiceShow.innerHTML = "🤔";
   computerChoiceShow.innerHTML = "🤖";
+}
+
+
+// Destroy animation
+function offAnimation() {
+  roundShow.setAttribute("style", "animation: none; opacity: 1;");
+  timerElem.setAttribute("style", "animation: none; opacity: 1;");
+}
+
+let countdown;
+// Timer before choices
+function timerChoices() {
+  let count = 4;
+
+    countdown = setInterval(() => {
+    count--;
+    if (count > 0) {
+      timerElem.textContent = count;
+    } else {
+      timerElem.textContent = "VS";
+      clearInterval(countdown);
+    }
+  }, 600);
 }
 
 // Player  vs Computer - choice showcase

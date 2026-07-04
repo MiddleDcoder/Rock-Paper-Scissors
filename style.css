@@ -3,14 +3,17 @@
   --secondary-color: #9d7643;
   --neutral-color: #274150;
 }
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
 .hidden {
   display: none !important;
 }
+
 body {
   padding: 5%;
   font-family: "Bebas Neue", sans-serif;
@@ -21,6 +24,7 @@ body {
   justify-content: center;
   align-items: center;
 }
+
 p,
 li {
   font-family: "Orbitron", sans-serif;
@@ -31,9 +35,11 @@ li {
   list-style: none;
   text-align: center;
 }
+
 ul {
   margin: 16px auto;
 }
+
 button {
   font-family: "Bebas Neue", sans-serif;
   font-size: 28px;
@@ -47,30 +53,38 @@ button {
   transition: transform 0.2s ease;
   margin: 20px 30px;
 }
+
 button:hover {
   transform: scale(1.05);
 }
+
 i.fas {
   font-size: 85px;
   padding: 8px 0;
 }
+
 .fa-hand-scissors {
   rotate: 90deg;
 }
+
 .play-btn {
   margin: 40px 0 10px 0;
 }
+
 .play-btn,
 .settings-btn {
   width: 175px !important;
 }
+
 .inline-buttons {
   flex-direction: row;
   gap: 16px;
 }
+
 .inline-buttons button {
   width: 150px;
 }
+
 .title,
 .round-win {
   text-align: center;
@@ -79,6 +93,7 @@ i.fas {
   margin-bottom: 32px;
   letter-spacing: 1px;
 }
+
 /* Start Screen */
 #start-screen {
   display: flex;
@@ -87,6 +102,7 @@ i.fas {
   flex-direction: column;
   gap: 4px;
 }
+
 /* Game Screen */
 #game-screen {
   display: flex;
@@ -94,6 +110,7 @@ i.fas {
   text-align: center;
   gap: 10px;
 }
+
 .scores {
   display: flex;
   justify-content: space-between;
@@ -101,25 +118,30 @@ i.fas {
   flex-wrap: wrap;
   gap: 20px;
 }
+
 @media screen and (max-width: 730px) {
   .scores {
     justify-content: center;
   }
 }
+
 .scores p {
   font-size: 26px;
   text-align: center;
 }
+
 .choice-show {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   flex-wrap: wrap;
 }
+
 /*Game Over Screen*/
 #game-over-screen {
   text-align: center;
 }
+
 /* Game Styles */
 .round-win {
   font-size: 52px;
@@ -129,37 +151,46 @@ i.fas {
   justify-content: center;
   align-items: center;
 }
+
 .choice-show {
   padding: 50px;
 }
+
 .vs {
   font-size: 50px;
   width: 300px;
 }
+
 .player-choice,
 .computer-choice {
   font-size: 140px;
 }
+
 .choice-show .fas {
   font-size: 180px;
 }
+
 .showcase {
   margin-bottom: 35px;
 }
+
 .game-winner {
   font-family: "Orbitron", sans-serif;
   font-size: 60px;
   padding: 40px 0;
 }
+
 .player-choice-show,
 .computer-choice-show {
   font-size: 40px;
 }
+
 .border-scores {
   border: 2px solid var(--secondary-color);
   padding: 12px;
   border-radius: 12px;
 }
+
 /* Animation for Round Fight text */
 .fight-text {
   font-size: 52px;
@@ -169,28 +200,34 @@ i.fas {
   margin-top: 30px;
   padding: 30px;
 }
+
 @keyframes showRound {
   0% {
     opacity: 0;
     transform: scale(0.5) translateY(-50px);
   }
+
   25% {
     opacity: 1;
     transform: scale(1.2) translateY(0);
   }
+
   50% {
     transform: scale(1);
   }
+
   75% {
     transform: scale(1.2);
     color: red;
     text-shadow: 0 0 20px yellow;
   }
+
   100% {
     opacity: 1;
     transform: scale(1) translateY(0px);
   }
 }
+
 #settings-screen {
   display: flex;
   justify-content: center;

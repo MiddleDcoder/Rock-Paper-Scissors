@@ -1,96 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Rock Paper Scissors</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Orbitron:wght@400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    />
-  </head>
-  <body>
-    <audio id="bg-music" src="assets/The-Entertainer.mp3" loop></audio>
-    <!-- Start Screen -->
-    <div id="start-screen">
-      <h1 class="title">Welcome to Rock, Paper, Scissors!</h1>
-      <p>Think fast and choose wisely!</p>
-      <p>
-        Face off against the computer in this classic showdown of reflexes and
-        strategy.
-      </p>
-      <p>
-        Your goal?
-        <strong>Be the first to score 5 points and claim victory.</strong>
-      </p>
-      <ul>
-        <li>🪨 Rock crushes Scissors</li>
-        <li>📄 Paper covers Rock</li>
-        <li>✂️ Scissors cuts Paper</li>
-      </ul>
-      <p>Can you outsmart the Computer?</p>
-      <p>Make your move — and may the best hand win! 🏆</p>
-      <button class="play-btn">Start Game</button>
-      <button class="settings-btn">Settings</button>
-    </div>
 
-    <!--  Game Screen -->
-    <div id="game-screen" class="choices hidden">
-      <h2 class="title"></h2>
-      <p class="round-show"></p>
-      <div class="scores">
-        <p class="player-score-show"></p>
-        <p class="computer-score-show"></p>
-      </div>
-      <div class="showcase">
-        <p class="round-win"></p>
-        <div class="choice-show">
-          <p class="player-choice">🤔</p>
-          <p class="vs timer"></p>
-          <p class="computer-choice">🤖</p>
-        </div>
-      </div>
-      <p>Choose your move, Rock, Paper, or Scissors?</p>
-      <div class="inline-buttons">
-        <button class="choice-btn" data-choice="Rock">
-          <i class="fas fa-hand-fist"></i> <span>Rock</span>
-        </button>
-        <button class="choice-btn" data-choice="Paper">
-          <i class="fas fa-hand"></i> <span>Paper</span>
-        </button>
-        <button class="choice-btn" data-choice="Scissors">
-          <i class="fas fa-hand-scissors"></i> <span>Scissors</span>
-        </button>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rock Paper Scissors</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Orbitron:wght@400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+
+<body>
+  <audio id="bg-music" src="assets/The-Entertainer.mp3" loop></audio>
+  <!-- Start Screen -->
+  <div id="start-screen">
+    <h1 class="title">Welcome to Rock, Paper, Scissors!</h1>
+    <p>Think fast and choose wisely!</p>
+    <p>
+      Face off against the computer in this classic showdown of reflexes and
+      strategy.
+    </p>
+    <p>
+      Your goal?
+      <strong>Be the first to score 5 points and claim victory.</strong>
+    </p>
+    <ul>
+      <li>🪨 Rock crushes Scissors</li>
+      <li>📄 Paper covers Rock</li>
+      <li>✂️ Scissors cuts Paper</li>
+    </ul>
+    <p>Can you outsmart the Computer?</p>
+    <p>Make your move — and may the best hand win! 🏆</p>
+    <button class="play-btn">Start Game</button>
+    <button class="settings-btn">Settings</button>
+  </div>
+
+  <!--  Game Screen -->
+  <div id="game-screen" class="choices hidden">
+    <h2 class="title"></h2>
+    <p class="round-show"></p>
+    <div class="scores">
+      <p class="player-score-show"></p>
+      <p class="computer-score-show"></p>
+    </div>
+    <div class="showcase">
+      <p class="round-win"></p>
+      <div class="choice-show">
+        <p class="player-choice">🤔</p>
+        <p class="vs timer"></p>
+        <p class="computer-choice">🤖</p>
       </div>
     </div>
-
-    <!-- Game Over / Scoreboard Screen -->
-    <div id="game-over-screen" class="hidden">
-      <h2 class="title">Game Over!</h2>
-      <h3 class="game-winner"></h3>
-      <button class="restart-btn">Restart</button>
-      <button class="main-menu-btn">Main Menu</button>
+    <p>Choose your move, Rock, Paper, or Scissors?</p>
+    <div class="inline-buttons">
+      <button class="choice-btn" data-choice="Rock">
+        <i class="fas fa-hand-fist"></i> <span>Rock</span>
+      </button>
+      <button class="choice-btn" data-choice="Paper">
+        <i class="fas fa-hand"></i> <span>Paper</span>
+      </button>
+      <button class="choice-btn" data-choice="Scissors">
+        <i class="fas fa-hand-scissors"></i> <span>Scissors</span>
+      </button>
     </div>
+  </div>
 
-    <!-- Settings Screen -->
-    <div id="settings-screen" class="hidden">
-      <h2 class="title">Settings</h2>
-      <button id="bg-music-setting">Play / Pause BG Music</button>
-      <button id="points-setting">Set points to Win</button>
-      <button id="back-main-menu">Back to Main Menu</button>
-    </div>
+  <!-- Game Over / Scoreboard Screen -->
+  <div id="game-over-screen" class="hidden">
+    <h2 class="title">Game Over!</h2>
+    <h3 class="game-winner"></h3>
+    <button class="restart-btn">Restart</button>
+    <button class="main-menu-btn">Main Menu</button>
+  </div>
 
-    <script src="index.js"></script>
-  </body>
+  <!-- Settings Screen -->
+  <div id="settings-screen" class="hidden">
+    <h2 class="title">Settings</h2>
+    <button id="bg-music-setting">Play / Pause BG Music</button>
+    <button id="points-setting">Set points to Win</button>
+    <button id="back-main-menu">Back to Main Menu</button>
+  </div>
+
+  <script src="index.js"></script>
+</body>
+
 </html>
